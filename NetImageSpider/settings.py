@@ -16,10 +16,6 @@ ITEM_PIPELINES = {
    'NetImageSpider.pipelines.NetimagespiderPipeline': 300,
 }
 
-# DOWNLOADER_MIDDLEWARES = {
-#    'NetImageSpider.middlewares.NetimagespiderDownloaderMiddleware': 543,
-# }
-
 IMAGES_EXPIRES = 30
 MEDIA_ALLOW_REDIRECTS = True
 

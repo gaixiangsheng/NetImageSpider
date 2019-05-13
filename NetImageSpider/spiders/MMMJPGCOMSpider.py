@@ -41,14 +41,13 @@ class MMMJPGCOMSpider(scrapy.Spider):
             if pageNo <= 0:
                 hrefs = "http://www.mmmjpg.com" + href
                 hrefLists.append(hrefs)
-                # yield scrapy.Request(hrefs, headers=self.headers, callback=self.parsePage)
+                yield scrapy.Request(hrefs, headers=self.headers, callback=self.parsePage)
             else:
                 for page in range(1, pageNo + 1):
                     hrefs = "http://www.mmmjpg.com" + href + "/" + str(page)
                     hrefLists.append(hrefs)
-                    # yield scrapy.Request(hrefs, callback=self.parsePage)
+                    yield scrapy.Request(hrefs, callback=self.parsePage)
 
-        yield scrapy.Request(hrefLists[0], callback=self.parsePage)
 
     ## 解析单个页面
     def parsePage(self, response):
