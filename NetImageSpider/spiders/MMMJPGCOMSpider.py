@@ -5,9 +5,9 @@ import re
 import time
 
 from NetImageSpider.items import NetimagespiderItem
-from NetImageSpider.settings import USER_AGENT
 
 
+## http://www.mmmjpg.com
 class MMMJPGCOMSpider(scrapy.Spider):
     name = "mmmjpgcom"
     allowed_domains = ["www.mmmjpg.com"]
@@ -24,8 +24,6 @@ class MMMJPGCOMSpider(scrapy.Spider):
         'cookie': 'Hm_lvt_d328bd83aff58d726c1a6fb64991331b=1557559863,1557581053; Hm_lpvt_d328bd83aff58d726c1a6fb64991331b=' + str(
             int(time.time())),
     }
-
-    cookie = {}
 
     ## 解析更多美女标签
     def parse(self, response):
