@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import scrapy
 import re
 import time
@@ -58,7 +57,7 @@ class MMMJPGCOMSpider(scrapy.Spider):
     def parseImage(self, response):
         name = response.xpath("//div/div/h1/text()").extract_first()
         javascript = response.xpath("//div[@class='clearfloat']/script[@type='text/javascript']/text()").extract_first()
-        pattern = re.compile(r'http://img.hi0590.com/\d+/\d+.jpg')
+        pattern = re.compile(r'http://img.\w+.com/\d+/\d+.jpg')
         imageHrefs = pattern.findall(javascript)
 
         index = 0
@@ -74,4 +73,5 @@ class MMMJPGCOMSpider(scrapy.Spider):
             index += 1
 
         if len(item['image_urls']) > 0:
+            # print(item)
             yield item

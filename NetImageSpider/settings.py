@@ -10,7 +10,7 @@ ROBOTSTXT_OBEY = False
 CONCURRENT_REQUESTS = 32
 DOWNLOAD_DELAY = 0.25
 
-IMAGES_STORE = '/mnt/SSD-80GB-0/spider_img'
+IMAGES_STORE = 'F:\\ScrapyImage\\'
 
 ITEM_PIPELINES = {
    'NetImageSpider.pipelines.NetimagespiderPipeline': 300,
