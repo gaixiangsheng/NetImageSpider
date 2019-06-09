@@ -37,10 +37,10 @@ class NetimagespiderPipeline(ImagesPipeline):
 
     def file_path(self, request, response=None, info=None):
         dir_name = request.meta['dir_name']
-        dir_name = re.sub(r'[？\\*|“<>:/]', '', dir_name)
+        dir_name = re.sub(r'[？?\\*|“<>:/]', '', dir_name)
 
         img_name = request.meta['image_name']
-        img_name = re.sub(r'[？\\*|“<>:/]', '', img_name)
+        img_name = re.sub(r'[？?\\*|“<>:/]', '', img_name)
 
         filename = u'/{0}/{1}.jpg'.format(dir_name, img_name)
         print("filename = ", filename)
